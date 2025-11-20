@@ -1,5 +1,6 @@
 package com.example.loginformpractice
 
+import android.text.Html
 import android.content.Intent
 import android.os.Bundle
 import android.widget.TextView
@@ -11,6 +12,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val signUpText: TextView = findViewById(R.id.signUpText)
+        signUpText.text = "Register Here"
+        signUpText.paintFlags = signUpText.paintFlags or android.graphics.Paint.UNDERLINE_TEXT_FLAG
+
         signUpText.setOnClickListener {
             val intent = Intent(this, RegistrationActivity::class.java)
             startActivity(intent)

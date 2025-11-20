@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">LoginFormPractice</string>
+    <string name="register_here"><u>Register Here</u></string>
 </resources>
