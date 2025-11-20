@@ -95,16 +95,12 @@
         android:textAllCaps="false"
         android:textColor="@android:color/white"
         android:textSize="18sp"
-        android:textStyle="bold"
-        app:icon="@drawable/ic_person"
-        app:iconGravity="textEnd"
-        app:iconPadding="8dp"
-        app:iconTint="@android:color/white" />
+        android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="32dp"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
@@ -155,7 +151,7 @@
             android:src="@drawable/ic_phone" />
     </LinearLayout>
 
-    <View
+    <Space
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" />
@@ -163,19 +159,23 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Don't have an account? "
-            android:textColor="@android:color/white" />
+            android:text="Don\'t have an account? "
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
 
         <TextView
+            android:id="@+id/signUpText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Sign Up"
             android:textColor="@android:color/white"
+            android:textSize="16sp"
             android:textStyle="bold" />
     </LinearLayout>
 
