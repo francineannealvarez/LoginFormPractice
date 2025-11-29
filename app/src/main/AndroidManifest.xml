@@ -25,7 +25,9 @@
             android:name=".RegistrationActivity"
             android:exported="false" />
 
-        <activity android:name=".LoginActivity" />
+        <activity
+            android:name=".HomeActivity"
+            android:exported="false" />
 
     </application>
 
