@@ -12,32 +12,45 @@
         android:id="@+id/headerLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp">
+        android:paddingStart="16dp"
+        android:paddingTop="48dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="16dp">
 
         <ImageView
             android:id="@+id/appLogo"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_centerVertical="true"
-            android:src="@drawable/ic_luna_logo" />
+            android:layout_alignParentTop="true"
+            android:src="@drawable/ic_luna_logo"
+            android:contentDescription="@string/app_logo" />
+
+        <ImageView
+            android:id="@+id/logoutIcon"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/ic_logout"
+            android:contentDescription="@string/logout"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackgroundBorderless" />
 
         <TextView
             android:id="@+id/homeTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
+            android:layout_alignParentTop="true"
+            android:layout_toStartOf="@id/logoutIcon"
+            android:layout_toEndOf="@id/appLogo"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:gravity="center"
             android:fontFamily="sans-serif-black"
-            android:text="HOME"
+            android:text="@string/home_title"
             android:textColor="@android:color/white"
             android:textSize="20sp" />
-
-        <ImageView
-            android:id="@+id/settingsIcon"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:src="@drawable/ic_settings" />
     </RelativeLayout>
 
     <!-- Welcome Message -->
@@ -49,7 +62,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
         android:fontFamily="sans-serif-medium"
-        android:text="Welcome, User!"
+        android:text="@string/welcome_default"
         android:textColor="@android:color/white"
         android:textSize="28sp" />
 
@@ -68,7 +81,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-light"
-            android:text="how are you feeling today?"
+            android:text="@string/mood_question"
             android:textColor="@android:color/white"
             android:textSize="16sp" />
 
@@ -85,7 +98,7 @@
                 android:background="@drawable/mood_background"
                 android:elevation="4dp"
                 android:gravity="center"
-                android:text="😠"
+                android:text="@string/mood_angry"
                 android:textSize="28sp" />
 
             <TextView
@@ -95,7 +108,7 @@
                 android:background="@drawable/mood_background"
                 android:elevation="4dp"
                 android:gravity="center"
-                android:text="😞"
+                android:text="@string/mood_sad"
                 android:textSize="28sp" />
 
             <TextView
@@ -105,7 +118,7 @@
                 android:background="@drawable/mood_background"
                 android:elevation="4dp"
                 android:gravity="center"
-                android:text="😐"
+                android:text="@string/mood_neutral"
                 android:textSize="28sp" />
 
             <TextView
@@ -115,7 +128,7 @@
                 android:background="@drawable/mood_background"
                 android:elevation="4dp"
                 android:gravity="center"
-                android:text="😊"
+                android:text="@string/mood_happy"
                 android:textSize="28sp" />
 
             <TextView
@@ -124,7 +137,7 @@
                 android:background="@drawable/mood_background"
                 android:elevation="4dp"
                 android:gravity="center"
-                android:text="😄"
+                android:text="@string/mood_very_happy"
                 android:textSize="28sp" />
         </LinearLayout>
     </LinearLayout>
@@ -155,7 +168,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:fontFamily="sans-serif-medium"
-                android:text="Our Mission &amp; SDG 3"
+                android:text="@string/sdg_mission_title"
                 android:textColor="@android:color/white"
                 android:textSize="16sp" />
 
@@ -167,12 +180,11 @@
                 android:fontFamily="sans-serif-light"
                 android:gravity="center"
                 android:lineSpacingMultiplier="1.25"
-                android:text="Luna promotes Good Health and Well-being by providing a dedicated space for menstrual, wellness, and self-care tracking, empowering users to take control of their health."
+                android:text="@string/sdg_introduction"
                 android:textColor="@android:color/white"
                 android:textSize="15sp" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
-
 
     <!-- Bottom Navigation -->
     <com.google.android.material.bottomnavigation.BottomNavigationView

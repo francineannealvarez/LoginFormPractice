@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "583146589692",
+    "project_id": "luna-mobcomp-project",
+    "storage_bucket": "luna-mobcomp-project.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:583146589692:android:f288227d261b9d36327679",
+        "android_client_info": {
+          "package_name": "com.example.loginformpractice"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEHqNM7gIK0eaJwvZhD7C2kdibrIBhAZ0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -46,10 +46,12 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 
     // Firebase BOM (Bill of Materials)
-    implementation(platform("com.google.firebase:firebase-bom:33.1.0"))
+    implementation(platform("com.google.firebase:firebase-bom:34.6.0"))
 
     // Firebase Dependencies
     implementation("com.google.firebase:firebase-auth")
-    implementation("com.google.firebase:firebase-firestore-ktx")
+    implementation("com.google.firebase:firebase-firestore")
+
+    implementation("androidx.core:core-ktx:1.17.0")
 
 }
