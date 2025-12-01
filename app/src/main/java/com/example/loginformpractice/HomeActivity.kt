@@ -4,7 +4,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.view.View
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -26,6 +28,13 @@ class HomeActivity : AppCompatActivity() {
 
         val welcomeMessageTextView = findViewById<TextView>(R.id.welcomeMessage)
         val logoutIcon = findViewById<ImageView>(R.id.logoutIcon)
+        val quoteTextView = findViewById<TextView>(R.id.quoteTextView)
+
+        val moodAngry = findViewById<LinearLayout>(R.id.moodAngry)
+        val moodSad = findViewById<LinearLayout>(R.id.moodSad)
+        val moodNeutral = findViewById<LinearLayout>(R.id.moodNeutral)
+        val moodHappy = findViewById<LinearLayout>(R.id.moodHappy)
+        val moodVeryHappy = findViewById<LinearLayout>(R.id.moodVeryHappy)
 
         // Check if we should show login success notification
         val showLoginSuccess = intent.getBooleanExtra("SHOW_LOGIN_SUCCESS", false)
@@ -78,6 +87,31 @@ class HomeActivity : AppCompatActivity() {
 
         logoutIcon.setOnClickListener {
             showLogoutConfirmation()
+        }
+
+        moodAngry.setOnClickListener {
+            quoteTextView.text = getString(R.string.quote_angry)
+            quoteTextView.visibility = View.VISIBLE
+        }
+
+        moodSad.setOnClickListener {
+            quoteTextView.text = getString(R.string.quote_sad)
+            quoteTextView.visibility = View.VISIBLE
+        }
+
+        moodNeutral.setOnClickListener {
+            quoteTextView.text = getString(R.string.quote_neutral)
+            quoteTextView.visibility = View.VISIBLE
+        }
+
+        moodHappy.setOnClickListener {
+            quoteTextView.text = getString(R.string.quote_happy)
+            quoteTextView.visibility = View.VISIBLE
+        }
+
+        moodVeryHappy.setOnClickListener {
+            quoteTextView.text = getString(R.string.quote_very_happy)
+            quoteTextView.visibility = View.VISIBLE
         }
     }
 
