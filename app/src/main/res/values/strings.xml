@@ -3,8 +3,6 @@
 
     <!-- Login Screen -->
     <string name="login_title">Login</string>
-    <string name="username_label">Username:</string>
-    <string name="username_hint">Enter your username</string>
     <string name="password_label">Password:</string>
     <string name="password_hint">Enter password</string>
     <string name="forgot_password">Forgot Password?</string>
