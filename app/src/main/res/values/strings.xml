@@ -10,7 +10,7 @@
     <string name="forgot_password">Forgot Password?</string>
     <string name="login_button_text">LogIn</string>
     <string name="or_continue_with">or continue with</string>
-    <string name="do_not_have_account">Don't have an account?</string>
+    <string name="do_not_have_account">Don\'t have an account?</string>
     <string name="sign_up">Register Here</string>
 
     <!-- Content Descriptions -->
@@ -60,11 +60,11 @@
     <string name="mood_very_happy_label">Excited</string>
 
     <!-- Motivational Quotes -->
-    <string name="quote_angry">"For every minute you remain angry, you give up sixty seconds of peace of mind." - Ralph Waldo Emerson</string>
-    <string name="quote_sad">"Tough times never last, but tough people do." - Robert H. Schuller</string>
-    <string name="quote_neutral">"The best way to predict the future is to create it." - Abraham Lincoln</string>
-    <string name="quote_happy">"The purpose of our lives is to be happy." - Dalai Lama</string>
-    <string name="quote_very_happy">"The only way to do great work is to love what you do." - Steve Jobs</string>
+    <string name="quote_angry">\"For every minute you remain angry, you give up sixty seconds of peace of mind.\" - Ralph Waldo Emerson</string>
+    <string name="quote_sad">\"Tough times never last, but tough people do.\" - Robert H. Schuller</string>
+    <string name="quote_neutral">\"The best way to predict the future is to create it.\" - Abraham Lincoln</string>
+    <string name="quote_happy">\"The purpose of our lives is to be happy.\" - Dalai Lama</string>
+    <string name="quote_very_happy">\"The only way to do great work is to love what you do.\" - Steve Jobs</string>
 
     <!-- For notification -->
     <string name="notification_icon">Notification icon</string>
