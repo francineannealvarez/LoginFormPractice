@@ -1,14 +1,20 @@
 package com.example.loginformpractice
 
 import android.content.Intent
+import android.graphics.LinearGradient
+import android.graphics.Paint
+import android.graphics.Shader
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Patterns
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
+import com.google.firebase.auth.FirebaseAuthInvalidUserException
 import com.google.firebase.firestore.FirebaseFirestore
 
 class MainActivity : AppCompatActivity() {
@@ -22,6 +28,9 @@ class MainActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
         db = FirebaseFirestore.getInstance()
+
+        // Apply gradient to LUNA text
+        applyGradientToLunaText()
 
         // Check if we should show logout notification
         val showLogoutSuccess = intent.getBooleanExtra("SHOW_LOGOUT_SUCCESS", false)
@@ -43,15 +52,25 @@ class MainActivity : AppCompatActivity() {
         val loginButton: Button = findViewById(R.id.button2)
         val signUpText: TextView = findViewById(R.id.signUpText)
 
+        signUpText.paintFlags = signUpText.paintFlags or Paint.UNDERLINE_TEXT_FLAG
+
         loginButton.setOnClickListener {
             val email = emailEditText.text.toString().trim()
             val password = passwordEditText.text.toString().trim()
 
+            // Validate empty fields
             if (email.isEmpty() || password.isEmpty()) {
                 NotificationHelper.showErrorNotification(this, "Please enter email and password")
                 return@setOnClickListener
             }
 
+            // Validate email format
+            if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                NotificationHelper.showErrorNotification(this, "Please enter a valid email address")
+                return@setOnClickListener
+            }
+
+            // Attempt login
             auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
@@ -72,9 +91,10 @@ class MainActivity : AppCompatActivity() {
                                 }
                         }
                     } else {
+                        // Show generic error message for security
                         NotificationHelper.showErrorNotification(
                             this,
-                            "Login failed: ${task.exception?.message}"
+                            "Incorrect email or password. Please try again."
                         )
                     }
                 }
@@ -83,6 +103,26 @@ class MainActivity : AppCompatActivity() {
         signUpText.setOnClickListener {
             val intent = Intent(this, RegistrationActivity::class.java)
             startActivity(intent)
+        }
+    }
+
+    private fun applyGradientToLunaText() {
+        val lunaTextView = findViewById<TextView>(R.id.appNameTitle)
+
+        lunaTextView.post {
+            // Vertical gradient (top to bottom)
+            val textShader = LinearGradient(
+                0f, 0f, 0f, lunaTextView.height.toFloat(),
+                intArrayOf(
+                    0xFF9FA8DA.toInt(),  // Light periwinkle (top)
+                    0xFF4A148C.toInt()   // Dark purple (bottom)
+                ),
+                null,
+                Shader.TileMode.CLAMP
+            )
+
+            lunaTextView.paint.shader = textShader
+            lunaTextView.invalidate()
         }
     }
 

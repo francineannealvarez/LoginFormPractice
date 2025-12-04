@@ -17,13 +17,34 @@
         android:paddingEnd="16dp"
         android:paddingBottom="16dp">
 
-        <ImageView
-            android:id="@+id/appLogo"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+        <LinearLayout
+            android:id="@+id/logoTitleContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
             android:layout_alignParentTop="true"
-            android:src="@drawable/ic_luna_logo"
-            android:contentDescription="@string/app_logo" />
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <ImageView
+                android:id="@+id/appLogo"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
+                android:layout_marginTop="-10dp"
+                android:layout_marginBottom="-20dp"
+                android:src="@drawable/ic_logo"
+                android:contentDescription="@string/app_logo" />
+
+            <TextView
+                android:id="@+id/homeTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="sans-serif-black"
+                android:text="@string/home_title"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
+        </LinearLayout>
 
         <ImageView
             android:id="@+id/logoutIcon"
@@ -31,26 +52,12 @@
             android:layout_height="32dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
+            android:layout_marginTop="8dp"
             android:src="@drawable/ic_logout"
             android:contentDescription="@string/logout"
             android:clickable="true"
             android:focusable="true"
             android:background="?attr/selectableItemBackgroundBorderless" />
-
-        <TextView
-            android:id="@+id/homeTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_toStartOf="@id/logoutIcon"
-            android:layout_toEndOf="@id/appLogo"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:gravity="center"
-            android:fontFamily="sans-serif-black"
-            android:text="@string/home_title"
-            android:textColor="@android:color/white"
-            android:textSize="20sp" />
     </RelativeLayout>
 
     <!-- Welcome Message -->

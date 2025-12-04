@@ -18,23 +18,48 @@
 
         <ImageView
             android:id="@+id/logo"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="20dp"
+            android:layout_marginTop="-10dp"
+            android:layout_marginBottom="-60dp"
             android:contentDescription="@string/logo_image"
             android:src="@drawable/ic_logo" />
+
+        <TextView
+            android:id="@+id/appNameTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:fontFamily="serif"
+            android:text="@string/luna_title"
+            android:textColor="@android:color/white"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.05" />
+
+        <TextView
+            android:id="@+id/appTagline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:fontFamily="sans-serif-light"
+            android:text="@string/bottom_label"
+            android:textColor="@android:color/white"
+            android:textSize="15sp"
+            android:gravity="center"
+            android:lineSpacingExtra="2dp" />
 
         <TextView
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp"
+            android:layout_marginBottom="0dp"
             android:fontFamily="serif"
             android:text="@string/login_title"
             android:textColor="@android:color/white"
-            android:textSize="48sp"
-            android:textStyle="bold" />
+            android:textSize="28sp"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/textView7"
@@ -192,6 +217,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/do_not_have_account"
+            android:textSize="16sp"
             android:textColor="@android:color/white" />
 
         <TextView
@@ -200,7 +226,10 @@
             android:layout_height="wrap_content"
             android:text="@string/sign_up"
             android:textColor="@android:color/white"
-            android:textStyle="bold" />
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:clickable="true"
+            android:focusable="true"/>
     </LinearLayout>
 
 </LinearLayout>
