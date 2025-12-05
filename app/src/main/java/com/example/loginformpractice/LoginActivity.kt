@@ -1,16 +1,19 @@
 package com.example.loginformpractice
 
 import android.content.Intent
+import android.graphics.LinearGradient
+import android.graphics.Shader
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.util.Patterns
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.loginformpractice.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
-class MainActivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var auth: FirebaseAuth
@@ -23,6 +26,8 @@ class MainActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
         db = FirebaseFirestore.getInstance()
+
+        applyGradientToLunaText()
 
         setupUI()
         checkIfUserIsLoggedIn()
@@ -94,6 +99,26 @@ class MainActivity : AppCompatActivity() {
                     "Logged out successfully. See you soon!"
                 )
             }, 500)
+        }
+    }
+
+    private fun applyGradientToLunaText() {
+        val lunaTextView = findViewById<TextView>(R.id.appNameTitle)
+
+        lunaTextView.post {
+            // Vertical gradient (top to bottom)
+            val textShader = LinearGradient(
+                0f, 0f, 0f, lunaTextView.height.toFloat(),
+                intArrayOf(
+                    0xFF9FA8DA.toInt(),  // Light periwinkle (top)
+                    0xFF4A148C.toInt()   // Dark purple (bottom)
+                ),
+                null,
+                Shader.TileMode.CLAMP
+            )
+
+            lunaTextView.paint.shader = textShader
+            lunaTextView.invalidate()
         }
     }
 
