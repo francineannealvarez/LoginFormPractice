@@ -5,7 +5,7 @@
     android:id="@+id/notificationCard"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="16dp"
+    android:layout_marginTop="16dp"
     app:cardBackgroundColor="#4CAF50"
     app:cardCornerRadius="8dp"
     app:cardElevation="8dp">

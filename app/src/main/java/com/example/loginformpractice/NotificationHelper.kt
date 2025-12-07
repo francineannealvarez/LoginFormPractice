@@ -43,7 +43,7 @@ object NotificationHelper {
             FrameLayout.LayoutParams.WRAP_CONTENT
         ).apply {
             gravity = Gravity.TOP
-            topMargin = 60  // Increased to 60dp to avoid camera/battery area
+            topMargin = 120
             leftMargin = 16
             rightMargin = 16
         }
