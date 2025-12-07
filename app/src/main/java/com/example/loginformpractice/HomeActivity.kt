@@ -11,6 +11,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -18,6 +19,9 @@ class HomeActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
     private lateinit var db: FirebaseFirestore
+
+    // Keep track of currently selected mood
+    private var selectedMoodLayout: LinearLayout? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -90,29 +94,51 @@ class HomeActivity : AppCompatActivity() {
         }
 
         moodAngry.setOnClickListener {
-            quoteTextView.text = getString(R.string.quote_angry)
-            quoteTextView.visibility = View.VISIBLE
+            selectMood(moodAngry, getString(R.string.quote_angry), quoteTextView)
         }
 
         moodSad.setOnClickListener {
-            quoteTextView.text = getString(R.string.quote_sad)
-            quoteTextView.visibility = View.VISIBLE
+            selectMood(moodSad, getString(R.string.quote_sad), quoteTextView)
         }
 
         moodNeutral.setOnClickListener {
-            quoteTextView.text = getString(R.string.quote_neutral)
-            quoteTextView.visibility = View.VISIBLE
+            selectMood(moodNeutral, getString(R.string.quote_neutral), quoteTextView)
         }
 
         moodHappy.setOnClickListener {
-            quoteTextView.text = getString(R.string.quote_happy)
-            quoteTextView.visibility = View.VISIBLE
+            selectMood(moodHappy, getString(R.string.quote_happy), quoteTextView)
         }
 
         moodVeryHappy.setOnClickListener {
-            quoteTextView.text = getString(R.string.quote_very_happy)
-            quoteTextView.visibility = View.VISIBLE
+            selectMood(moodVeryHappy, getString(R.string.quote_very_happy), quoteTextView)
         }
+    }
+
+    private fun selectMood(moodLayout: LinearLayout, quote: String, quoteTextView: TextView) {
+        // Reset previously selected mood
+        selectedMoodLayout?.let { previousMood ->
+            val previousEmojiCircle = previousMood.getChildAt(0) as TextView
+            // Reset to original size
+            previousEmojiCircle.scaleX = 1.0f
+            previousEmojiCircle.scaleY = 1.0f
+            // Reset background to original white circle
+            previousEmojiCircle.setBackgroundResource(R.drawable.mood_background)
+        }
+
+        // Highlight the newly selected mood
+        val emojiCircle = moodLayout.getChildAt(0) as TextView
+        // Make it bigger
+        emojiCircle.scaleX = 1.2f
+        emojiCircle.scaleY = 1.2f
+        // Change to dark purple circle
+        emojiCircle.setBackgroundResource(R.drawable.mood_background_selected)
+
+        // Store the selected mood
+        selectedMoodLayout = moodLayout
+
+        // Show the quote
+        quoteTextView.text = quote
+        quoteTextView.visibility = View.VISIBLE
     }
 
     private fun showLogoutConfirmation() {
